@@ -1,6 +1,6 @@
-const capitalize = (string) => {
-  return `${string[0].toUpperCase()}${string.slice(1)}`;
-};
+const isLeapYear = (year) => year % 400 === 0 || (year % 4 === 0 && year % 100 !== 0);
 
-console.log(capitalize('sgfd'));
 
+console.log(isLeapYear(2018));
+console.log(isLeapYear(2017));
+console.log(isLeapYear(2016));
