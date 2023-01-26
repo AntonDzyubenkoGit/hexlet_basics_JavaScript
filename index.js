@@ -1,34 +1,17 @@
-//Функция находит сколько раз знак содержится в строке
-const countChars_base = (string, char) => {
+// Функция, возвращающая копию строки с каждым n-ым символом в верхнем регистре
+const makeItFunny = (string, num) => {
   let result = "";
-  let i = 0;
-  while (i < string.length) {
-    if (string[i] === char) {
-      result = result + char;
+  let i = 1;
+  while (i <= string.length) {
+    if (i % num === 0) {
+      result = `${result}${string[i-1].toUpperCase()}`;
+    } else {
+      result = `${result}${string[i-1]}`;
     }
-    i = i + 1;
-  }
-  return result.length;
-};
-
-//console.log(countChars_base("Fear cuts deeper than swords.", "f"));
-
-//Функция находит сколько раз знак содержится в строке без привязки к регистру
-
-const countChars = (string, char) => {
-  let result = 0;
-  let i = 0;
-
-  while (i < string.length) {
-    if (string[i].toLowerCase() === char.toLowerCase()) {
-      result = result + 1;
-    }
-    i = i + 1;
+    i += 1;
   }
   return result;
 };
 
-console.log(countChars('axe', 'a'));
-console.log(countChars('', 'a'));
-console.log(countChars('OpPa', 'p'));
-console.log(countChars('OpPa', 'P'));
+const text = "I never look back";
+console.log(makeItFunny(text, 3));
