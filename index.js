@@ -1,17 +1,14 @@
-const getNumberExplanation = (num) => {
-  switch(num) {
-    case 666:
-      return 'devil number';
-    case 42:
-      return 'answer for everything';
-    case 7:
-      return 'prime number';
-    default: 
-      return null;
+const joinNumbersFromRange = (start, finish) => {
+  let result = "";
+  let i = start;
+
+  while (i <= finish) {
+    result = `${result}${String(i)}`;
+    i += 1;
   }
+  return result;
 };
 
-console.log(getNumberExplanation(8));
-console.log(getNumberExplanation(666));
-console.log(getNumberExplanation(42));
-console.log(getNumberExplanation(7));
+console.log(joinNumbersFromRange(2, 2));
+console.log(joinNumbersFromRange(1, 5));
+console.log(joinNumbersFromRange(10, 12));
