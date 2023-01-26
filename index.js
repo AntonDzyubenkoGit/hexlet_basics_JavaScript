@@ -1,14 +1,14 @@
-const joinNumbersFromRange = (start, finish) => {
-  let result = "";
-  let i = start;
+const mySubstr = (string, length) => {
+  let result = '';
+  let i = 0;
 
-  while (i <= finish) {
-    result = `${result}${String(i)}`;
+  while(i < length) {
+    result = `${result}${string[i]}`;
     i += 1;
   }
   return result;
 };
 
-console.log(joinNumbersFromRange(2, 2));
-console.log(joinNumbersFromRange(1, 5));
-console.log(joinNumbersFromRange(10, 12));
+const text = 'If I look back I am lost';
+console.log(mySubstr(text, 1));
+console.log(mySubstr(text, 7));
