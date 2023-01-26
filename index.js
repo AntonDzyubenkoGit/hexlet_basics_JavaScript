@@ -1,17 +1,19 @@
-// Функция, возвращающая копию строки с каждым n-ым символом в верхнем регистре
-const makeItFunny = (string, num) => {
+// Функция, которая шифрует сообщение. При нечетном количестве символом в строке, последний символ не меняется
+const encrypt = (message) => {
   let result = "";
-  let i = 1;
-  while (i <= string.length) {
-    if (i % num === 0) {
-      result = `${result}${string[i-1].toUpperCase()}`;
+
+  for (let i = 0; i < message.length; i += 1) {
+    if (i % 2 === 0) {
+      result = result + (message[i + 1] !== undefined ? message[i + 1] : message[ message.length - 1]);
     } else {
-      result = `${result}${string[i-1]}`;
+      result = result + message[i - 1];
     }
-    i += 1;
   }
   return result;
 };
 
-const text = "I never look back";
-console.log(makeItFunny(text, 3));
+console.log(encrypt("move")); //'omev'
+console.log(encrypt("attack")); //taatkc'
+console.log(encrypt("car!")); // 'ac!r'
+console.log(encrypt("go!")); // 'og!'
+console.log(encrypt("carla")); // 'aclra!'
