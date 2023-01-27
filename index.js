@@ -1,13 +1,16 @@
-// Испытания. Javascript: Идеальные числа
+// Испытания. Javascript: Инвертированный регистр
 
-const isPerfect = (num) => {
-  let result = 0;
-  for (let i = 0; i < num; i++) {
-    if (num % i === 0) {
-      result += i;
+const invertCase = (str) => {
+  let result = "";
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === str[i].toUpperCase()) {
+      result = `${result}${str[i].toLowerCase()}`;
+    } else {
+      result = `${result}${str[i].toUpperCase()}`;
     }
   }
-  return result === num && num !== 0;
+  return result;
 };
 
-console.log(isPerfect(7));
+console.log(invertCase("Hello, World!")); //hELLO, wORLD!
+console.log(invertCase("I loVe JS")); //i LOvE js
