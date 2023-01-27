@@ -1,12 +1,13 @@
-// Испытания. Javascript: Фасад
+// Испытания. Javascript: Идеальные числа
 
-import cube from './numbers1.js';
+const isPerfect = (num) => {
+  let result = 0;
+  for (let i = 0; i < num; i++) {
+    if (num % i === 0) {
+      result += i;
+    }
+  }
+  return result === num && num !== 0;
+};
 
-export default cube;
-export {
-  default as multi,
-  pow2 as pow,
-  sum2 as sum,
-  sub2 as sub,
-} from './numbers2.js';
-export { default as sqrt } from './numbers3.js';
+console.log(isPerfect(7));
