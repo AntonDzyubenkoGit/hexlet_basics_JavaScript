@@ -1,7 +1,13 @@
-export const getTriangleArea = (h, b) => {
-  let square = 0.5 * h * b; 
-  return square;
-}
+// Числа Фибоначи
+const fib = (num) => {
+  let result = 0;
+  let subresult = 1;
 
-//console.log(getTriangleArea(5, 10)); 
-//console.log(getTriangleArea(15, 12));
+  for(let i = 0; i < num; i++) {
+    result = result + subresult;
+    subresult = result - subresult;
+  }
+  return result;
+};
+
+console.log(fib(10));
