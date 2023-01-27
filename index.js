@@ -1,15 +1,14 @@
-// Функция для переворота цифр в числе
-const reverseNum = (num) => {
-  const string = String(Math.abs(num));
-
-  let result = "";
-  for (let i = 0; i < string.length; i++) {
-    result = Number(`${string[i]}${result}`);
+// Javascript: Счастливый билет
+const isHappyTicket = (str) => {
+  let resultFirstHAlf = 0;
+  let resultSecondHalf = 0;
+  for (let i = 0; i < str.length / 2; i++) {
+    resultFirstHAlf += Number(str[i]);
   }
-  if (num >= 0) {
-    return result;
+  for (let j = str.length / 2; j < str.length; j++) {
+    resultSecondHalf += Number(str[j]);
   }
-  return -result;
+  return resultFirstHAlf === resultSecondHalf;
 };
 
-console.log(reverseNum(8900));
+console.log(isHappyTicket("23"));
