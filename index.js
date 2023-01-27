@@ -1,16 +1,28 @@
-// Испытания. Javascript: Инвертированный регистр
-
-const invertCase = (str) => {
-  let result = "";
-  for (let i = 0; i < str.length; i++) {
-    if (str[i] === str[i].toUpperCase()) {
-      result = `${result}${str[i].toLowerCase()}`;
-    } else {
-      result = `${result}${str[i].toUpperCase()}`;
-    }
+// Испытания. Javascript: Счастливые числа
+const sumOfSquareDigits = (num) => {
+  const numAsStr = String(num);
+  let sum = 0;
+  for (let i = 0; i < numAsStr.length; i += 1) {
+    const digit = Number(numAsStr[i]);
+    sum += digit * digit;
   }
-  return result;
+
+  return sum;
 };
 
-console.log(invertCase("Hello, World!")); //hELLO, wORLD!
-console.log(invertCase("I loVe JS")); //i LOvE js
+const isHappyNumber = (num) => {
+  let numAsStrig = String(num);
+  let result = 0;
+  for (let i = 0; i < 10; i++) {
+    result = result + sumOfSquareDigits(numAsStrig);
+    if (result === 1) {
+      return true;
+    }
+    numAsStrig = String(result);
+
+    result = 0;
+  }
+  return false;
+};
+
+console.log(isHappyNumber(8));
