@@ -1,17 +1,15 @@
-// Javascript: Найди Fizz и Buzz
-const fizzBuzz = (begin, end) => {
-  let result = 0;
-  for (let i = begin; i <= end; i++) {
-    result = i;
-    if (i % 3 === 0 && i % 5 === 0) {
-      result = "FizzBuzz";
-    } else if (i % 3 === 0) {
-      result = "Fizz";
-    } else if (i % 5 === 0) {
-      result = "Buzz";
-    }
-    console.log(result);
+// Функция для переворота цифр в числе
+const reverseNum = (num) => {
+  const string = String(Math.abs(num));
+
+  let result = "";
+  for (let i = 0; i < string.length; i++) {
+    result = Number(`${string[i]}${result}`);
   }
+  if (num >= 0) {
+    return result;
+  }
+  return -result;
 };
 
-fizzBuzz(1, 30);
+console.log(reverseNum(8900));
